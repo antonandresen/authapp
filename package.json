@@ -4,7 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=prod nodemon server/index.js",
+    "server-dev": "cross-env NODE_ENV=prod nodemon server/index.js",
+    "client-dev": "cross-env NODE_ENV=prod npm start --prefix client",
+    "start-dev": "concurrently \"yarn server-dev\" \"yarn client-dev\"",
     "test": "cross-env NODE_ENV=test mocha --timeout 5000 __tests__/server/**/*.test.js",
     "report": "cross-env NODE_ENV=test nyc --reporter=lcov mocha --timeout 5000 __tests__/server/**/*.test.js",
     "text-report": "cross-env NODE_ENV=test nyc --reporter=text-summary mocha --timeout 5000 __tests__/server/**/*.test.js",
@@ -14,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^4.1.2",
     "cross-env": "^6.0.0",
     "express": "^4.17.1",
     "express-promise-router": "^3.0.3",
