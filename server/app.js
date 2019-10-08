@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const helmet = require('helmet');
 
 mongoose.Promise = global.Promise;
 if (process.env.NODE_ENV === 'test') {
@@ -19,6 +20,7 @@ const app = express();
 
 // Middlewares.
 app.use(express.json({ extended: false }));
+app.use(helmet());
 
 if (process.env.NODE_ENV !== 'test') {
   app.use(morgan('dev'));
