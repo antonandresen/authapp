@@ -18,7 +18,7 @@
     "bcryptjs": "^2.4.3",
     "concurrently": "^4.1.2",
     "cross-env": "^6.0.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-promise-router": "^3.0.3",
     "helmet": "^3.21.1",
     "joi": "^14.3.1",
